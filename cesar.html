@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <title>Cesar</title>
+    <script type="text/javascript" src="cesar.js"></script>
+</head>
+
+<body>
+    <h1>Chiffrement de César</h1>
+    <p>Entrez une valeur à chiffrer et déchiffrer:</p>
+    <input type="text" id="value">
+    <input type="number" id="decalage" placeholder="Entrez la clé (décalage)">
+    <button onclick="chiffrer()">Chiffrer</button>
+    <button onclick="dechiffrer()">Déchiffrer</button>
+    <p id="resultat"></p>
+
+    <script>
+        function chiffrer() {
+            const texte = document.getElementById('value').value;
+            const decalage = parseInt(document.getElementById('decalage').value, 10);
+            const texteChiffre = crypterCesar(texte, decalage);
+            document.getElementById('resultat').innerHTML = `Texte chiffré: ${texteChiffre}`;
+        }
+
+        function dechiffrer() {
+            const texte = document.getElementById('value').value;
+            const decalage = parseInt(document.getElementById('decalage').value, 10);
+            const texteDechiffre = decrypterCesar(texte, decalage);
+            document.getElementById('resultat').innerHTML = `Texte déchiffré: ${texteDechiffre}`;
+        }
+    </script>
+</body>
+
+</html>
